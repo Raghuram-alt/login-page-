@@ -18,7 +18,8 @@ export type ScreenId =
   | 'vehicle_health'
   | 'ar_demo'
   | 'offline_maps'
-  | 'settings';
+  | 'settings'
+  | 'login';
 
 export type TravelMode =
   | 'all'

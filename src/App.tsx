@@ -29,6 +29,7 @@ import { VehicleHealthScreen } from './components/screens/VehicleHealthScreen';
 import { ARNavigationScreen } from './components/screens/ARNavigationScreen';
 import { OfflineMapsScreen } from './components/screens/OfflineMapsScreen';
 import { SettingsProfileScreen } from './components/screens/SettingsProfileScreen';
+import { LoginScreen } from './components/screens/LoginScreen';
 import { ScreenId } from './types/mobility';
 import { X } from 'lucide-react';
 
@@ -78,6 +79,8 @@ const MainAppContent: React.FC = () => {
         return <OfflineMapsScreen />;
       case 'settings':
         return <SettingsProfileScreen />;
+      case 'login':
+        return <LoginScreen />;
       default:
         return <DashboardScreen />;
     }
@@ -85,6 +88,7 @@ const MainAppContent: React.FC = () => {
 
   const allScreens: { id: ScreenId; label: string }[] = [
     { id: 'dashboard', label: 'Main Dashboard' },
+    { id: 'login', label: 'Sign In / Account' },
     { id: 'planner', label: 'Trip Planner' },
     { id: 'comparison', label: 'Route Comparison' },
     { id: 'navigation', label: 'Live Navigation' },

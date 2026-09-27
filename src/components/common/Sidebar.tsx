@@ -21,6 +21,7 @@ import {
   Glasses,
   DownloadCloud,
   Settings,
+  LogIn,
 } from 'lucide-react';
 
 interface NavItem {
@@ -82,6 +83,7 @@ export const Sidebar: React.FC = () => {
         { id: 'ar_demo', label: 'AR Navigation Demo', icon: <Glasses size={18} /> },
         { id: 'offline_maps', label: 'Offline Maps', icon: <DownloadCloud size={18} /> },
         { id: 'settings', label: 'Settings & Privacy', icon: <Settings size={18} /> },
+        { id: 'login', label: 'Sign In / Account', icon: <LogIn size={18} /> },
       ],
     },
   ];

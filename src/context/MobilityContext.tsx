@@ -119,6 +119,10 @@ interface MobilityContextType {
   showTripCompleteModal: boolean;
   setShowTripCompleteModal: (show: boolean) => void;
   lastCompletedTrip: TripHistoryItem | null;
+
+  isAuthenticated: boolean;
+  loginUser: (email: string, personaId?: string) => Promise<boolean>;
+  logoutUser: () => void;
 }
 
 const MobilityContext = createContext<MobilityContextType | undefined>(undefined);
@@ -126,6 +130,7 @@ const MobilityContext = createContext<MobilityContextType | undefined>(undefined
 export const MobilityProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [currentScreen, setCurrentScreen] = useState<ScreenId>('dashboard');
   const [currentUser, setCurrentUser] = useState<UserProfile>(DEMO_USERS[0]);
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(true);
 
   // Default origin: Kakinada Town Station, destination: Visakhapatnam Jn
   const [origin, setOrigin] = useState<LocationPoint>(DEMO_LOCATIONS[0]);
@@ -453,6 +458,38 @@ export const MobilityProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     setTripHistory((prev) => [item, ...prev]);
   };
 
+  const loginUser = async (email: string, personaId?: string): Promise<boolean> => {
+    await new Promise((resolve) => setTimeout(resolve, 600));
+
+    if (personaId) {
+      const found = DEMO_USERS.find((u) => u.id === personaId);
+      if (found) {
+        setCurrentUser(found);
+      }
+    } else {
+      const namePart = email.split('@')[0] || 'Commuter';
+      const capitalized = namePart.charAt(0).toUpperCase() + namePart.slice(1);
+      setCurrentUser((prev) => ({
+        ...prev,
+        id: `user_${Date.now()}`,
+        name: capitalized,
+        role: 'Verified Commuter',
+      }));
+    }
+
+    setIsAuthenticated(true);
+    setCurrentScreen('dashboard');
+    addNotification('Sign-In Successful', `Welcome back to NexMobility!`, 'success');
+    speechService.speak(`Welcome to NexMobility.`);
+    return true;
+  };
+
+  const logoutUser = () => {
+    setIsAuthenticated(false);
+    setCurrentScreen('login');
+    addNotification('Signed Out', 'You have been safely signed out.', 'info');
+  };
+
   return (
     <MobilityContext.Provider
       value={{
@@ -503,6 +540,9 @@ export const MobilityProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         showTripCompleteModal,
         setShowTripCompleteModal,
         lastCompletedTrip,
+        isAuthenticated,
+        loginUser,
+        logoutUser,
       }}
     >
       {children}

@@ -13,6 +13,8 @@ import {
   CheckCircle,
   AlertTriangle,
   Info,
+  LogOut,
+  LogIn,
 } from 'lucide-react';
 import { speechService } from '../../services/speechService';
 
@@ -30,6 +32,8 @@ export const Header: React.FC = () => {
     notifications,
     dismissNotification,
     setCurrentScreen,
+    isAuthenticated,
+    logoutUser,
   } = useMobility();
 
   const [showUserMenu, setShowUserMenu] = useState(false);
@@ -225,6 +229,29 @@ export const Header: React.FC = () => {
                     </div>
                   </button>
                 ))}
+
+                <div className="mt-2 pt-2 border-t border-slate-800/80 space-y-1">
+                  <button
+                    onClick={() => {
+                      setCurrentScreen('login');
+                      setShowUserMenu(false);
+                    }}
+                    className="w-full text-left px-2.5 py-1.5 rounded-lg text-xs font-semibold text-cyan-400 hover:bg-cyan-500/10 flex items-center gap-2 transition-colors"
+                  >
+                    <LogIn size={13} />
+                    <span>View Login Screen</span>
+                  </button>
+                  <button
+                    onClick={() => {
+                      logoutUser();
+                      setShowUserMenu(false);
+                    }}
+                    className="w-full text-left px-2.5 py-1.5 rounded-lg text-xs font-semibold text-red-400 hover:bg-red-500/10 flex items-center gap-2 transition-colors"
+                  >
+                    <LogOut size={13} />
+                    <span>Sign Out</span>
+                  </button>
+                </div>
               </div>
             )}
           </div>
