@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In &bull; CAPITAL Revenue Intelligence</title>
+  <meta name="description"
+    content="Secure portal login for CAPITAL - Sales Pipeline Velocity, ARR Forecasting, and Revenue Operations Platform.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23fef08a'/%3E%3Cstop offset='100%25' stop-color='%23f59e0b'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='%23080c14'/%3E%3Cpath d='M8 22L13 15L18 19L24 10' stroke='url(%23g)' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Ccircle cx='24' cy='10' r='2' fill='%23fef08a'/%3E%3C/svg%3E">
+</head>
+
+<body class="theme-dark">
+  <!-- Background ambient glow canvas -->
+  <div class="ambient-glow glow-top-left" aria-hidden="true"></div>
+  <div class="ambient-glow glow-bottom-right" aria-hidden="true"></div>
+  <div class="ambient-grid-pattern" aria-hidden="true"></div>
+
+    <!-- Cinematic Bitcoin Intro Transition Overlay (Clean Bitcoin Layout Only) -->
+  <div id="bitcoin-intro-overlay" class="btc-intro-overlay" role="dialog" aria-modal="true" aria-label="Portal Security Gateway">
+    <div class="btc-intro-stage" id="btc-intro-stage">
+      <!-- 3D Perspective Camera for Bitcoin -->
+      <div class="btc-viewport-camera" id="btc-camera">
+        <div class="btc-coin-3d" id="btc-intro-coin" role="button" tabindex="0" aria-label="Click Bitcoin to open login interface" title="Click to enter platform">
+          <!-- Pure Vector Bitcoin Structure (Matched to reference layout) -->
+          <div class="btc-face btc-front">
+            <svg class="btc-svg" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="goldRimOuter" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#FFFDF0"/>
+                  <stop offset="25%" stop-color="#FDE047"/>
+                  <stop offset="55%" stop-color="#D97706"/>
+                  <stop offset="85%" stop-color="#92400E"/>
+                  <stop offset="100%" stop-color="#451A03"/>
+                </linearGradient>
+                <radialGradient id="goldBevel" cx="35%" cy="30%" r="70%">
+                  <stop offset="0%" stop-color="#FFFBEB"/>
+                  <stop offset="20%" stop-color="#FEF08A"/>
+                  <stop offset="50%" stop-color="#F59E0B"/>
+                  <stop offset="80%" stop-color="#B45309"/>
+                  <stop offset="100%" stop-color="#451A03"/>
+                </radialGradient>
+                <linearGradient id="glyphGoldFrame" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#FFFFFF"/>
+                  <stop offset="30%" stop-color="#FEF08A"/>
+                  <stop offset="70%" stop-color="#F59E0B"/>
+                  <stop offset="100%" stop-color="#B45309"/>
+                </linearGradient>
+                <radialGradient id="topAuraFlare" cx="50%" cy="3%" r="20%">
+                  <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.95"/>
+                  <stop offset="30%" stop-color="#FEF08A" stop-opacity="0.8"/>
+                  <stop offset="70%" stop-color="#F59E0B" stop-opacity="0.4"/>
+                  <stop offset="100%" stop-color="transparent"/>
+                </radialGradient>
+                <radialGradient id="botAuraFlare" cx="50%" cy="97%" r="18%">
+                  <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.9"/>
+                  <stop offset="30%" stop-color="#FEF08A" stop-opacity="0.75"/>
+                  <stop offset="70%" stop-color="#F59E0B" stop-opacity="0.35"/>
+                  <stop offset="100%" stop-color="transparent"/>
+                </radialGradient>
+                <filter id="glyphShadow" x="-20%" y="-20%" width="140%" height="140%">
+                  <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000000" flood-opacity="0.95"/>
+                  <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#F59E0B" flood-opacity="0.7"/>
+                </filter>
+              </defs>
+
+              <!-- 1. Outer Polished Gold Rim with Bevel -->
+              <circle cx="250" cy="250" r="244" fill="url(#goldRimOuter)" stroke="#FEF08A" stroke-width="4"/>
+              <circle cx="250" cy="250" r="236" stroke="#451A03" stroke-width="2.5"/>
+
+              <!-- 2. Dark Charcoal Runic Bezel Ring -->
+              <circle cx="250" cy="250" r="232" fill="#070A12"/>
+              <circle cx="250" cy="250" r="232" stroke="#78350F" stroke-width="1.5"/>
+
+              <!-- Runic / Cryptographic Inscriptions -->
+              <path id="runeCircleTop" d="M 64,250 A 186,186 0 1,1 436,250" fill="none"/>
+              <path id="runeCircleBottom" d="M 64,250 A 186,186 0 0,0 436,250" fill="none"/>
+              <text font-family="'Plus Jakarta Sans', monospace, sans-serif" font-size="14" font-weight="800" fill="#F59E0B" letter-spacing="4.8">
+                <textPath href="#runeCircleTop" startOffset="50%" text-anchor="middle">★ FARTMOD HAS OF STAR WE MER ★</textPath>
+              </text>
+              <text font-family="'Plus Jakarta Sans', monospace, sans-serif" font-size="14" font-weight="800" fill="#F59E0B" letter-spacing="4.8">
+                <textPath href="#runeCircleBottom" startOffset="50%" text-anchor="middle">★ DECENTRALIZED · PEER TO PEER ★</textPath>
+              </text>
+
+              <!-- 3. Inner Stepped Concentric Gold Bevel -->
+              <circle cx="250" cy="250" r="176" fill="url(#goldBevel)" stroke="#FEF08A" stroke-width="3"/>
+              <circle cx="250" cy="250" r="168" stroke="#581C06" stroke-width="2"/>
+              <circle cx="250" cy="250" r="164" stroke="#FEF08A" stroke-width="1.5" stroke-dasharray="6 3"/>
+
+              <!-- 4. Dark Obsidian PCB Coin Field -->
+              <circle cx="250" cy="250" r="158" fill="#04060B"/>
+
+              <!-- Dense High-Tech Circuit Traces & Microchip Nodes -->
+              <g stroke="#D97706" stroke-width="2" stroke-linecap="round" opacity="0.85">
+                <path d="M120 180 h35 v-25 h25 M380 180 h-35 v-25 h-25"/>
+                <path d="M120 320 h35 v25 h25 M380 320 h-35 v25 h-25"/>
+                <path d="M110 230 h35 M390 230 h-35"/>
+                <path d="M110 270 h35 M390 270 h-35"/>
+                <path d="M140 140 h30 v15 M360 140 h-30 v15" stroke-width="1.5"/>
+                <path d="M140 360 h30 v-15 M360 360 h-30 v-15" stroke-width="1.5"/>
+                <path d="M170 120 v30 M330 120 v30" stroke-width="1.5"/>
+                <path d="M170 380 v-30 M330 380 v-30" stroke-width="1.5"/>
+                <circle cx="250" cy="250" r="130" stroke="#B45309" stroke-width="1.2" stroke-dasharray="4 6" opacity="0.6"/>
+                <circle cx="250" cy="250" r="95" stroke="#F59E0B" stroke-width="1" stroke-dasharray="2 4" opacity="0.4"/>
+              </g>
+
+              <!-- Golden Solder Pad Terminal Dots -->
+              <g fill="#FEF08A" stroke="#78350F" stroke-width="1.2">
+                <circle cx="180" cy="155" r="4"/>
+                <circle cx="320" cy="155" r="4"/>
+                <circle cx="180" cy="345" r="4"/>
+                <circle cx="320" cy="345" r="4"/>
+                <circle cx="145" cy="230" r="3.5"/>
+                <circle cx="355" cy="230" r="3.5"/>
+                <circle cx="145" cy="270" r="3.5"/>
+                <circle cx="355" cy="270" r="3.5"/>
+                <circle cx="170" cy="120" r="3"/>
+                <circle cx="330" cy="120" r="3"/>
+                <circle cx="170" cy="380" r="3"/>
+                <circle cx="330" cy="380" r="3"/>
+              </g>
+
+              <!-- 5. Bold, Commanding ₿ Glyph (Triple Gold Frame + Obsidian Interior with Circuits) -->
+              <g filter="url(#glyphShadow)">
+                <path d="M225 110 v35 M225 355 v35 M275 110 v35 M275 355 v35" stroke="#FFFFFF" stroke-width="16" stroke-linecap="round"/>
+                <path d="M225 110 v35 M225 355 v35 M275 110 v35 M275 355 v35" stroke="#F59E0B" stroke-width="10" stroke-linecap="round"/>
+                
+                <path d="M185 145 h85 c28 0 48 14 48 40 0 21 -14 35 -34 40 25 4 41 20 41 46 0 30 -24 49 -56 49 h-84 z" 
+                      fill="#060911" stroke="url(#glyphGoldFrame)" stroke-width="12" stroke-linejoin="round"/>
+                <path d="M185 145 h85 c28 0 48 14 48 40 0 21 -14 35 -34 40 25 4 41 20 41 46 0 30 -24 49 -56 49 h-84 z" 
+                      fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round" opacity="0.8"/>
+
+                <!-- Upper Lobe Cutout with Golden Micro-Architecture -->
+                <path d="M225 180 h32 c12 0 20 7 20 18 s-8 18 -20 18 h-32 z" 
+                      fill="#060911" stroke="#F59E0B" stroke-width="4"/>
+                <path d="M235 198 h14 v-6" stroke="#FEF08A" stroke-width="1.8" stroke-linecap="round"/>
+                <circle cx="249" cy="192" r="2" fill="#FEF08A"/>
+
+                <!-- Lower Lobe Cutout with Golden Micro-Architecture -->
+                <path d="M225 250 h36 c14 0 23 8 23 21 s-9 21 -23 21 h-36 z" 
+                      fill="#060911" stroke="#F59E0B" stroke-width="4"/>
+                <path d="M235 271 h18 v6" stroke="#FEF08A" stroke-width="1.8" stroke-linecap="round"/>
+                <circle cx="253" cy="277" r="2" fill="#FEF08A"/>
+              </g>
+
+              <!-- Top and Bottom Radiant Light Flares directly on the Coin Rim -->
+              <ellipse cx="250" cy="8" rx="55" ry="14" fill="url(#topAuraFlare)"/>
+              <ellipse cx="250" cy="492" rx="48" ry="12" fill="url(#botAuraFlare)"/>
+            </svg>
+            <div class="btc-specular-sheen"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Golden Core Aperture Flare -->
+      <div class="btc-core-flash" id="btc-core-flash" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <main class="page-container" id="login-container">
+    <div class="login-layout">
+
+      <!-- Auth Card -->
+      <section class="auth-section" aria-labelledby="auth-heading">
+      <header class="auth-brand-bar">
+        <a href="#home" class="brand-identity" aria-label="CAPITAL Home">
+          <div class="brand-logo-mark">
+            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-svg" aria-hidden="true">
+              <rect width="36" height="36" rx="10" fill="url(#brand-grad)" />
+              <path d="M9 25L15.5 17L21 21.5L27 11" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <circle cx="27" cy="11" r="2.5" fill="#FEF08A" />
+              <defs>
+                <linearGradient id="brand-grad" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#FEF08A" />
+                  <stop offset="0.5" stop-color="#F59E0B" />
+                  <stop offset="1" stop-color="#92400E" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <span class="brand-name">CAPITAL</span>
+            <span class="brand-tag">Revenue Intelligence</span>
+          </div>
+        </a>
+
+        <!-- Controls: Replay Intro & Quick Demo Fill -->
+        <div class="top-nav-actions">
+          <button id="replay-intro-btn" class="pill-badge-btn pill-btn-amber" type="button"
+            title="Replay Bitcoin entry animation">
+            <span class="btc-badge-icon" aria-hidden="true">₿</span>
+            <span>Replay Intro</span>
+          </button>
+          <button id="demo-autofill-btn" class="pill-badge-btn" type="button"
+            title="Quick-fill business demo credentials">
+            <svg viewBox="0 0 16 16" fill="currentColor" width="12" height="12" aria-hidden="true">
+              <path
+                d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.089z" />
+            </svg>
+            <span>Demo Auto-fill</span>
+          </button>
+        </div>
+      </header>
+
+      <div class="auth-content-box">
+        <div class="auth-header-copy">
+
+          <div class="pill-kicker">
+            <span class="pulse-indicator"></span>
+            Enterprise Revenue Portal
+          </div>
+          <h1 id="auth-heading" class="auth-title">Welcome back</h1>
+          <p class="auth-subtitle">Sign in to monitor pipeline acceleration, ARR pacing, and revenue team performance.
+          </p>
+        </div>
+
+
+
+        <!-- Notification Banner (Dynamic for errors & integration messages) -->
+        <div id="auth-alert" class="auth-alert hidden" role="alert" aria-live="polite">
+          <div class="alert-icon" id="alert-icon-wrap"></div>
+          <div class="alert-text" id="alert-message"></div>
+          <button type="button" class="alert-dismiss-btn" id="alert-dismiss" aria-label="Dismiss alert">&times;</button>
+        </div>
+
+        <!-- Main Authentication Form -->
+        <form id="login-form" class="auth-form" novalidate>
+          <!-- Email Input Field -->
+          <div class="form-field-group" id="group-email">
+            <div class="field-label-row">
+              <label for="email-input" class="field-label">Work Email</label>
+              <span class="field-hint" id="email-hint">name@company.com</span>
+            </div>
+            <div class="input-wrapper">
+              <div class="input-icon-prefix" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+              </div>
+              <input type="email" id="email-input" name="email" class="form-input"
+                placeholder="alex.morgan@enterprise.io" autocomplete="email" required
+                aria-describedby="email-feedback" />
+              <div class="input-status-indicator" id="email-status-icon" aria-hidden="true"></div>
+            </div>
+            <div class="validation-message" id="email-feedback" role="alert"></div>
+          </div>
+
+          <!-- Password Input Field -->
+          <div class="form-field-group" id="group-password">
+            <div class="field-label-row">
+              <label for="password-input" class="field-label">Password</label>
+              <button type="button" class="forgot-link-btn" id="forgot-password-trigger">Forgot password?</button>
+            </div>
+            <div class="input-wrapper">
+              <div class="input-icon-prefix" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                </svg>
+              </div>
+              <input type="password" id="password-input" name="password" class="form-input"
+                placeholder="Enter your password" autocomplete="current-password" required
+                aria-describedby="password-feedback" />
+              <button type="button" id="toggle-password-btn" class="input-action-btn"
+                aria-label="Show password as plain text" aria-pressed="false">
+                <!-- Eye Open (Hide) -->
+                <svg class="eye-open-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                <!-- Eye Slash (Show) -->
+                <svg class="eye-closed-icon hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path
+                    d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24">
+                  </path>
+                  <line x1="1" y1="1" x2="23" y2="23"></line>
+                </svg>
+              </button>
+            </div>
+            <div class="validation-message" id="password-feedback" role="alert"></div>
+          </div>
+
+          <!-- Utility Options: Remember Me -->
+          <div class="form-aux-row">
+            <label class="custom-checkbox-container" for="remember-me-checkbox">
+              <input type="checkbox" id="remember-me-checkbox" name="rememberMe" class="custom-checkbox-input">
+              <span class="custom-checkbox-box" aria-hidden="true">
+                <svg viewBox="0 0 12 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <polyline points="1.5 5.5 4.5 8.5 10.5 1.5" />
+                </svg>
+              </span>
+              <span class="checkbox-label-text">Remember this workstation for 30 days</span>
+            </label>
+          </div>
+
+          <!-- Submit Button with Dynamic State -->
+          <button type="submit" id="submit-btn" class="primary-submit-btn">
+            <span class="btn-spinner hidden" id="btn-spinner" aria-hidden="true"></span>
+            <span class="btn-text" id="btn-text">Sign in to Platform</span>
+            <svg class="btn-arrow-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd"
+                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                clip-rule="evenodd" />
+            </svg>
+          </button>
+        </form>
+
+        <!-- Security & Integration Footer -->
+        <footer class="auth-security-footer">
+          <div class="security-badges-list">
+            <div class="security-badge" title="SOC-2 Type II Certified">
+              <svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14" aria-hidden="true">
+                <path fill-rule="evenodd"
+                  d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd" />
+              </svg>
+              <span>SOC-2 Type II</span>
+            </div>
+            <div class="security-badge" title="256-bit AES TLS Encryption">
+              <svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14" aria-hidden="true">
+                <path fill-rule="evenodd"
+                  d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-2 4a1 1 0 011 1v2a1 1 0 11-2 0v-2a1 1 0 011-1z"
+                  clip-rule="evenodd" />
+              </svg>
+              <span>256-bit TLS</span>
+            </div>
+            <div class="security-badge" title="GDPR & CCPA Compliant">
+              <svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14" aria-hidden="true">
+                <path fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd" />
+              </svg>
+              <span>ISO 27001</span>
+            </div>
+          </div>
+
+        </footer>
+      </div>
+      </section>
+      <!-- End Auth Section -->
+
+      <!-- Right Side Bitcoin Coin (mirror of left, same interactivity) -->
+      <div class="side-btc-coin side-btc-coin--right" aria-hidden="true">
+        <div class="side-coin-tilt" id="side-coin-tilt-right">
+        <div class="side-coin-wrap">
+          <svg class="side-btc-svg" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="s2GoldRimOuter" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%"   stop-color="#FFFDF0"/>
+                <stop offset="25%"  stop-color="#FDE047"/>
+                <stop offset="55%"  stop-color="#D97706"/>
+                <stop offset="85%"  stop-color="#92400E"/>
+                <stop offset="100%" stop-color="#451A03"/>
+              </linearGradient>
+              <radialGradient id="s2GoldBevel" cx="35%" cy="30%" r="70%">
+                <stop offset="0%"   stop-color="#FFFBEB"/>
+                <stop offset="20%"  stop-color="#FEF08A"/>
+                <stop offset="50%"  stop-color="#F59E0B"/>
+                <stop offset="80%"  stop-color="#B45309"/>
+                <stop offset="100%" stop-color="#451A03"/>
+              </radialGradient>
+              <linearGradient id="s2GlyphGold" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%"   stop-color="#FFFFFF"/>
+                <stop offset="30%"  stop-color="#FEF08A"/>
+                <stop offset="70%"  stop-color="#F59E0B"/>
+                <stop offset="100%" stop-color="#B45309"/>
+              </linearGradient>
+              <radialGradient id="s2TopAura" cx="50%" cy="3%" r="20%">
+                <stop offset="0%"   stop-color="#FFFFFF"     stop-opacity="0.95"/>
+                <stop offset="30%"  stop-color="#FEF08A"     stop-opacity="0.8"/>
+                <stop offset="70%"  stop-color="#F59E0B"     stop-opacity="0.4"/>
+                <stop offset="100%" stop-color="transparent"/>
+              </radialGradient>
+              <filter id="s2GlyphShadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000000" flood-opacity="0.95"/>
+                <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#F59E0B" flood-opacity="0.7"/>
+              </filter>
+            </defs>
+            <!-- Outer Gold Rim -->
+            <circle cx="250" cy="250" r="244" fill="url(#s2GoldRimOuter)" stroke="#FEF08A" stroke-width="4"/>
+            <circle cx="250" cy="250" r="236" stroke="#451A03" stroke-width="2.5"/>
+            <!-- Dark Bezel Ring -->
+            <circle cx="250" cy="250" r="232" fill="#070A12"/>
+            <circle cx="250" cy="250" r="232" stroke="#78350F" stroke-width="1.5"/>
+            <!-- Runic Inscriptions -->
+            <path id="s2RuneTop" d="M 64,250 A 186,186 0 1,1 436,250" fill="none"/>
+            <path id="s2RuneBot" d="M 64,250 A 186,186 0 0,0 436,250" fill="none"/>
+            <text font-family="'Plus Jakarta Sans', monospace" font-size="14" font-weight="800" fill="#F59E0B" letter-spacing="4.8">
+              <textPath href="#s2RuneTop" startOffset="50%" text-anchor="middle">★ FARTMOD HAS OF STAR WE MER ★</textPath>
+            </text>
+            <text font-family="'Plus Jakarta Sans', monospace" font-size="14" font-weight="800" fill="#F59E0B" letter-spacing="4.8">
+              <textPath href="#s2RuneBot" startOffset="50%" text-anchor="middle">★ DECENTRALIZED · PEER TO PEER ★</textPath>
+            </text>
+            <!-- Inner Gold Bevel -->
+            <circle cx="250" cy="250" r="176" fill="url(#s2GoldBevel)" stroke="#FEF08A" stroke-width="3"/>
+            <circle cx="250" cy="250" r="168" stroke="#581C06" stroke-width="2"/>
+            <circle cx="250" cy="250" r="164" stroke="#FEF08A" stroke-width="1.5" stroke-dasharray="6 3"/>
+            <!-- Dark Obsidian Field -->
+            <circle cx="250" cy="250" r="158" fill="#04060B"/>
+            <!-- Circuit Traces -->
+            <g stroke="#D97706" stroke-width="2" stroke-linecap="round" opacity="0.85">
+              <path d="M120 180 h35 v-25 h25 M380 180 h-35 v-25 h-25"/>
+              <path d="M120 320 h35 v25 h25 M380 320 h-35 v25 h-25"/>
+              <path d="M110 230 h35 M390 230 h-35"/>
+              <path d="M110 270 h35 M390 270 h-35"/>
+              <circle cx="250" cy="250" r="130" stroke="#B45309" stroke-width="1.2" stroke-dasharray="4 6" opacity="0.6"/>
+              <circle cx="250" cy="250" r="95"  stroke="#F59E0B" stroke-width="1"   stroke-dasharray="2 4" opacity="0.4"/>
+            </g>
+            <!-- Solder Pads -->
+            <g fill="#FEF08A" stroke="#78350F" stroke-width="1.2">
+              <circle cx="180" cy="155" r="4"/><circle cx="320" cy="155" r="4"/>
+              <circle cx="180" cy="345" r="4"/><circle cx="320" cy="345" r="4"/>
+              <circle cx="145" cy="230" r="3.5"/><circle cx="355" cy="230" r="3.5"/>
+            </g>
+            <!-- ₿ Glyph -->
+            <g filter="url(#s2GlyphShadow)">
+              <path d="M225 110 v35 M225 355 v35 M275 110 v35 M275 355 v35" stroke="#FFFFFF" stroke-width="16" stroke-linecap="round"/>
+              <path d="M225 110 v35 M225 355 v35 M275 110 v35 M275 355 v35" stroke="#F59E0B" stroke-width="10" stroke-linecap="round"/>
+              <path d="M185 145 h85 c28 0 48 14 48 40 0 21 -14 35 -34 40 25 4 41 20 41 46 0 30 -24 49 -56 49 h-84 z"
+                    fill="#060911" stroke="url(#s2GlyphGold)" stroke-width="12" stroke-linejoin="round"/>
+              <path d="M185 145 h85 c28 0 48 14 48 40 0 21 -14 35 -34 40 25 4 41 20 41 46 0 30 -24 49 -56 49 h-84 z"
+                    fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round" opacity="0.8"/>
+              <path d="M225 180 h32 c12 0 20 7 20 18 s-8 18 -20 18 h-32 z" fill="#060911" stroke="#F59E0B" stroke-width="4"/>
+              <path d="M225 250 h36 c14 0 23 8 23 21 s-9 21 -23 21 h-36 z" fill="#060911" stroke="#F59E0B" stroke-width="4"/>
+            </g>
+            <!-- Top Aura Flare -->
+            <ellipse cx="250" cy="8" rx="55" ry="14" fill="url(#s2TopAura)"/>
+          </svg>
+          <div class="side-coin-sheen"></div>
+        </div><!-- /side-coin-wrap -->
+        <div class="side-coin-glow-ring" aria-hidden="true"></div>
+        <div class="side-coin-orbit" aria-hidden="true">
+          <span class="orbit-dot"></span>
+          <span class="orbit-dot"></span>
+          <span class="orbit-dot"></span>
+        </div>
+        </div><!-- /side-coin-tilt -->
+        <p class="side-coin-label">BTC / USD</p>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Interactive Modal: Forgot Password Flow -->
+  <!-- Interactive Modal: Reset Security Credentials Flow -->
+  <div id="forgot-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+          </svg>
+        </div>
+        <div>
+          <h3 id="modal-title" class="modal-title">Reset your security credentials</h3>
+          <p class="modal-sub" id="modal-sub">Enter your corporate email address to receive secure OTP recovery
+            instructions.</p>
+        </div>
+        <button type="button" class="modal-close-btn" id="modal-close-btn" aria-label="Close dialog">&times;</button>
+      </div>
+
+      <!-- Step 1: Request OTP -->
+      <form id="forgot-step-1" class="modal-form" novalidate>
+        <div class="form-field-group">
+          <label for="reset-email-input" class="field-label">Registered Corporate Email</label>
+          <div class="input-wrapper" id="reset-email-wrapper">
+            <div class="input-icon-prefix" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+            </div>
+            <input type="email" id="reset-email-input" class="form-input" placeholder="alex.morgan@enterprise.io"
+              required />
+          </div>
+          <div class="validation-message" id="reset-email-feedback" role="alert"></div>
+        </div>
+        <div class="modal-actions-row">
+          <button type="button" class="secondary-btn" id="modal-cancel-btn">Cancel</button>
+          <button type="submit" class="primary-submit-btn compact" id="send-reset-btn">
+            <span class="btn-spinner hidden" id="reset-spinner" aria-hidden="true"></span>
+            <span id="send-reset-text">Send Verification Code</span>
+          </button>
+        </div>
+      </form>
+
+      <!-- Step 2: Verification Code & New Password -->
+      <form id="forgot-step-2" class="modal-form hidden" novalidate>
+        <div class="form-field-group">
+          <div class="field-label-row">
+            <label for="otp-code-input" class="field-label">6-Digit Verification Code</label>
+            <span class="field-hint" style="color: #10B981; font-weight: 500;">Demo: 492018</span>
+          </div>
+          <div class="input-wrapper" id="otp-wrapper">
+            <div class="input-icon-prefix" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+            <input type="text" id="otp-code-input" class="form-input" placeholder="492018" maxlength="6" required />
+          </div>
+          <div class="validation-message" id="otp-feedback" role="alert"></div>
+        </div>
+
+        <div class="form-field-group">
+          <label for="new-password-input" class="field-label">New Password</label>
+          <div class="input-wrapper" id="new-password-wrapper">
+            <div class="input-icon-prefix" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+              </svg>
+            </div>
+            <input type="password" id="new-password-input" class="form-input"
+              placeholder="Enter new password (min. 6 chars)" required />
+          </div>
+          <div class="validation-message" id="new-password-feedback" role="alert"></div>
+        </div>
+
+        <div class="modal-actions-row">
+          <button type="button" class="secondary-btn" id="modal-back-btn">Back</button>
+          <button type="submit" class="primary-submit-btn compact" id="confirm-reset-btn">
+            <span class="btn-spinner hidden" id="confirm-spinner" aria-hidden="true"></span>
+            <span id="confirm-reset-text">Update Password</span>
+          </button>
+        </div>
+      </form>
+
+      <!-- Step 3: Success State -->
+      <div id="forgot-step-success" class="modal-success-view hidden" style="text-align: center; padding: 0.5rem 0;">
+        <div
+          style="width: 52px; height: 52px; border-radius: 50%; background: rgba(16, 185, 129, 0.15); color: #10B981; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 0.75rem;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+            stroke-linejoin="round" width="26" height="26">
+            <polyline points="20 6 9 17 4 12" />
+          </svg>
+        </div>
+        <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.35rem;">Credentials
+          Successfully Reset</h4>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.25rem;">Your account password has
+          been updated. You can now log in securely.</p>
+        <button type="button" class="primary-submit-btn" id="modal-done-btn">
+          <span>Return to Sign In</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script src="app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,1271 @@
+/* ==========================================================================
+   RevPulse Revenue Intelligence — Design System & Login Interface Stylesheet
+   Modern, enterprise-grade, accessible, and responsive.
+   ========================================================================== */
+
+:root {
+  /* Core Color Tokens (Bitcoin Obsidian & Gold Theme) */
+  --bg-primary: #06080e;
+  --bg-secondary: #0c101a;
+  --bg-surface: rgba(12, 16, 26, 0.78);
+  --bg-surface-elevated: rgba(24, 30, 48, 0.7);
+  --bg-input: rgba(9, 13, 22, 0.88);
+  --bg-input-focus: #0e1422;
+
+  --border-subtle: rgba(245, 158, 11, 0.14);
+  --border-medium: rgba(245, 158, 11, 0.28);
+  --border-focus: #f59e0b;
+
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-inverse: #05070c;
+
+  /* Bitcoin Brand & Accents */
+  --brand-blue: #f59e0b;
+  --brand-blue-hover: #d97706;
+  --brand-emerald: #f59e0b;
+  --brand-emerald-glow: rgba(245, 158, 11, 0.35);
+  --brand-gold: #f59e0b;
+  --brand-gold-bright: #fef08a;
+  --brand-gradient: linear-gradient(135deg, #f59e0b 0%, #d97706 55%, #b45309 100%);
+  --brand-gradient-hover: linear-gradient(135deg, #fffbeb 0%, #fef08a 30%, #f59e0b 75%, #b45309 100%);
+
+  /* Feedback Colors */
+  --color-success: #10b981;
+  --color-success-bg: rgba(16, 185, 129, 0.12);
+  --color-error: #ef4444;
+  --color-error-bg: rgba(239, 68, 68, 0.12);
+  --color-warning: #f59e0b;
+  --color-warning-bg: rgba(245, 158, 11, 0.12);
+  --color-info: #f59e0b;
+  --color-info-bg: rgba(245, 158, 11, 0.12);
+
+  /* Shadows & Glass */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 16px -1px rgba(0, 0, 0, 0.5), 0 2px 6px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 25px 60px -12px rgba(0, 0, 0, 0.9), 0 0 45px -10px rgba(245, 158, 11, 0.22);
+  --glass-blur: blur(16px);
+
+  /* Typography */
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-spring: 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+
+
+/* ==========================================================================
+   CSS Reset & Base
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  min-height: 100%;
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+/* Accessible focus ring system */
+:focus-visible {
+  outline: 2px solid var(--brand-gold);
+  outline-offset: 2px;
+}
+
+/* Ambient Background Lights */
+.ambient-glow {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.55;
+  transition: opacity var(--transition-normal);
+}
+
+.glow-top-left {
+  top: -15%;
+  left: -10%;
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.28) 0%, transparent 70%);
+}
+
+.glow-bottom-right {
+  bottom: -20%;
+  right: -10%;
+  width: 55vw;
+  height: 55vw;
+  background: radial-gradient(circle, rgba(217, 119, 6, 0.22) 0%, transparent 70%);
+}
+
+
+
+.ambient-grid-pattern {
+  position: fixed;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, var(--border-subtle) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border-subtle) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse at 50% 50%, #000 40%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 50%, #000 40%, transparent 80%);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+/* ==========================================================================
+   Main Layout Structure
+   ========================================================================== */
+.page-container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 3rem 1.25rem;
+}
+
+/* Login two-column layout: coin right, card center-left */
+.login-layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4.5rem;
+  width: 100%;
+  max-width: 1320px;
+}
+
+/* ==========================================================================
+   Side Decorative Bitcoin Coin — Expanded Size & Volumetric 3D Presence
+   ========================================================================== */
+.side-btc-coin {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  flex-shrink: 0;
+  perspective: 1000px;
+  /* Hidden by default — revealed after intro transition */
+  opacity: 0;
+  transform: translateX(-40px) scale(0.88);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Shown once the site has been revealed */
+body.site-intro-revealed .side-btc-coin {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  transition-delay: 0.25s;
+}
+
+/* Right coin: slides in from the right */
+.side-btc-coin--right {
+  transform: translateX(40px) scale(0.88);
+}
+body.site-intro-revealed .side-btc-coin--right {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  transition-delay: 0.35s;
+}
+
+/* Float animation phase offset so right coin bobs out of sync */
+.side-btc-coin--right .side-coin-wrap {
+  animation-delay: -2.5s;
+}
+.side-btc-coin--right .side-coin-glow-ring {
+  animation-delay: -2.4s;
+}
+
+/* OUTER layer: JS writes rotateX/rotateY/translate here — NO CSS animation */
+.side-coin-tilt {
+  position: relative;
+  width: 360px;
+  height: 360px;
+  transform-style: preserve-3d;
+  will-change: transform;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+/* INNER layer: CSS float animation lives here, separate from JS tilt */
+.side-coin-wrap {
+  position: relative;
+  width: 360px;
+  height: 360px;
+  transform-style: preserve-3d;
+  filter:
+    drop-shadow(0 4px 0 #78350F)
+    drop-shadow(0 8px 0 #451A03)
+    drop-shadow(0 0 55px rgba(245, 158, 11, 0.65))
+    drop-shadow(0 32px 70px rgba(0, 0, 0, 0.95));
+  animation: side-coin-float 5s ease-in-out infinite;
+  will-change: transform;
+  cursor: pointer;
+}
+
+@keyframes side-coin-float {
+  0%,  100% { transform: translateY(0)    rotateY(0deg)   rotateX(2deg); }
+  25%        { transform: translateY(-14px) rotateY(6deg)  rotateX(-1deg); }
+  50%        { transform: translateY(-22px) rotateY(0deg)  rotateX(-3deg); }
+  75%        { transform: translateY(-10px) rotateY(-6deg) rotateX(1deg); }
+}
+
+.side-btc-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 50%;
+}
+
+/* Specular glass sheen */
+.side-coin-sheen {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 25%, rgba(255,255,255,0.32) 0%, transparent 60%);
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* Ambient gold glow ring beneath the coin */
+.side-coin-glow-ring {
+  position: absolute;
+  bottom: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 290px;
+  height: 40px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(245,158,11,0.65) 0%, transparent 70%);
+  filter: blur(16px);
+  animation: side-coin-float 5s ease-in-out infinite;
+  animation-delay: 0.1s;
+}
+
+/* Orbiting particles */
+.side-coin-orbit {
+  position: absolute;
+  inset: -24px;
+  border-radius: 50%;
+  animation: orbit-spin 9s linear infinite;
+}
+
+@keyframes orbit-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.orbit-dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #FEF08A;
+  box-shadow: 0 0 10px #F59E0B, 0 0 18px rgba(245,158,11,0.8);
+}
+
+.orbit-dot:nth-child(1) { top: 0;   left: 50%; transform: translateX(-50%); }
+.orbit-dot:nth-child(2) { top: 50%; right: 0;  transform: translateY(-50%); }
+.orbit-dot:nth-child(3) { bottom: 0; left: 50%; transform: translateX(-50%); }
+
+/* BTC / USD label */
+.side-coin-label {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: #F59E0B;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+/* Hide side coin on small screens where it would crowd the card */
+@media (max-width: 980px) {
+  .side-btc-coin,
+  .side-btc-coin--right {
+    display: none;
+  }
+  .login-layout {
+    gap: 0;
+  }
+}
+
+/* ==========================================================================
+   Centered Authentication Hub Card — Expanded Size & Volumetric 3D Presence
+   ========================================================================== */
+.auth-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 3.25rem 2.75rem;
+  max-width: 590px;
+  width: 100%;
+  background: linear-gradient(165deg, rgba(16, 22, 36, 0.88) 0%, rgba(9, 13, 22, 0.94) 100%);
+  backdrop-filter: blur(24px) saturate(135%);
+  -webkit-backdrop-filter: blur(24px) saturate(135%);
+  border: 1px solid rgba(245, 158, 11, 0.24);
+  border-radius: 28px;
+  box-shadow:
+    0 40px 100px -15px rgba(0, 0, 0, 0.95),
+    0 20px 40px -10px rgba(0, 0, 0, 0.8),
+    0 0 65px -10px rgba(245, 158, 11, 0.28),
+    inset 0 1px 2px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -2px 6px 0 rgba(0, 0, 0, 0.7);
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.auth-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #92400e 0%, #f59e0b 30%, #fef08a 50%, #f59e0b 70%, #92400e 100%);
+  box-shadow: 0 0 18px rgba(245, 158, 11, 0.75), 0 2px 8px rgba(254, 240, 138, 0.6);
+}
+
+@media (min-width: 640px) {
+  .auth-section {
+    padding: 3.75rem 3.25rem;
+  }
+}
+
+/* Brand Bar */
+.auth-brand-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2.75rem;
+}
+
+.brand-identity {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.brand-logo-mark {
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(245, 158, 11, 0.5);
+  transition: transform var(--transition-spring);
+}
+
+.brand-identity:hover .brand-logo-mark {
+  transform: scale(1.05) rotate(2deg);
+}
+
+.logo-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name {
+  font-size: 1.45rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #ffffff 25%, #fef08a 65%, #f59e0b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.brand-tag {
+  font-size: 0.76rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #f59e0b;
+}
+
+.top-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.pill-badge-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  color: #fbbf24;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.45rem 0.85rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.pill-badge-btn:hover {
+  background: rgba(245, 158, 11, 0.22);
+  border-color: rgba(245, 158, 11, 0.55);
+  color: #fef08a;
+  transform: translateY(-1px);
+}
+
+/* Authentication Content */
+.auth-content-box {
+  width: 100%;
+}
+
+.auth-header-copy {
+  margin-bottom: 2.25rem;
+}
+
+.pill-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  margin-bottom: 1rem;
+}
+
+.pulse-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--brand-emerald);
+  box-shadow: 0 0 8px var(--brand-emerald);
+  animation: pulse-ring 2s infinite;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+.auth-title {
+  font-size: 2.45rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--text-primary);
+  line-height: 1.15;
+  margin-bottom: 0.6rem;
+}
+
+.auth-subtitle {
+  font-size: 1.02rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Alerts / Notification Bar */
+.auth-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.875rem 1rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+  transition: all var(--transition-fast);
+  animation: slide-in-down 0.25s ease-out;
+}
+
+@keyframes slide-in-down {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.auth-alert.error {
+  background: var(--color-error-bg);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+}
+
+.auth-alert.success {
+  background: var(--color-success-bg);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #6ee7b7;
+}
+
+.auth-alert.info {
+  background: var(--color-info-bg);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  color: #7dd3fc;
+}
+
+.alert-dismiss-btn {
+  margin-left: auto;
+  background: transparent;
+  border: none;
+  font-size: 1.25rem;
+  line-height: 1;
+  color: inherit;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.alert-dismiss-btn:hover {
+  opacity: 1;
+}
+
+/* Form Fields */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.field-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.field-label {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.field-hint {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.forgot-link-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #fbbf24;
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.forgot-link-btn:hover {
+  color: #fef08a;
+  text-decoration: underline;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(6, 9, 15, 0.95) 0%, rgba(10, 14, 24, 0.9) 100%);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6), 0 1px 2px rgba(255, 255, 255, 0.04);
+  transition: all var(--transition-fast);
+}
+
+.input-wrapper:hover {
+  border-color: var(--border-medium);
+}
+
+.input-wrapper.focus-within,
+.input-wrapper:focus-within {
+  border-color: var(--border-focus);
+  background: var(--bg-input-focus);
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.input-wrapper:focus-within .input-icon-prefix {
+  color: #f59e0b;
+}
+
+.input-wrapper.has-error {
+  border-color: var(--color-error);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+  animation: shake-x 0.4s ease-in-out;
+}
+
+.input-wrapper.has-success {
+  border-color: var(--color-success);
+}
+
+@keyframes shake-x {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-4px); }
+  40%, 80% { transform: translateX(4px); }
+}
+
+.input-icon-prefix {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 1rem;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.input-icon-prefix svg {
+  width: 20px;
+  height: 20px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.95rem 1rem;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  font-size: 1.02rem;
+  color: var(--text-primary);
+}
+
+.form-input::placeholder {
+  color: var(--text-muted);
+  opacity: 0.8;
+}
+
+.input-action-btn {
+  background: transparent;
+  border: none;
+  padding: 0.5rem 0.875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  cursor: pointer;
+  border-radius: 6px;
+  transition: color var(--transition-fast);
+}
+
+.input-action-btn:hover {
+  color: var(--text-primary);
+}
+
+.input-action-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.input-status-indicator {
+  padding-right: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.input-status-indicator svg {
+  width: 18px;
+  height: 18px;
+}
+
+.validation-message {
+  font-size: 0.8rem;
+  min-height: 1.25rem;
+  color: var(--color-error);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* Auxiliary Options */
+.form-aux-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: -0.25rem 0 0.25rem;
+}
+
+.custom-checkbox-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.custom-checkbox-input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.custom-checkbox-box {
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.custom-checkbox-box svg {
+  width: 13px;
+  height: 13px;
+  stroke: #ffffff;
+  stroke-dasharray: 16;
+  stroke-dashoffset: 16;
+  transition: stroke-dashoffset 0.2s ease-in-out;
+}
+
+.custom-checkbox-input:checked + .custom-checkbox-box {
+  background: #f59e0b;
+  border-color: #f59e0b;
+}
+
+.custom-checkbox-input:checked + .custom-checkbox-box svg {
+  stroke-dashoffset: 0;
+  stroke: #05070c;
+  stroke-width: 2.5;
+}
+
+.custom-checkbox-input:focus-visible + .custom-checkbox-box {
+  outline: 2px solid #f59e0b;
+  outline-offset: 2px;
+}
+
+.checkbox-label-text {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+}
+
+/* Submit Button — Tactile 3D Volumetric Button */
+.primary-submit-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 1.08rem 1.75rem;
+  background: linear-gradient(180deg, #fef08a 0%, #f59e0b 45%, #b45309 100%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 12px;
+  color: #060911;
+  font-size: 1.06rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  box-shadow:
+    0 6px 28px rgba(245, 158, 11, 0.6),
+    0 2px 8px rgba(0, 0, 0, 0.6),
+    inset 0 1px 1px rgba(255, 255, 255, 0.8),
+    inset 0 -2px 4px rgba(69, 26, 3, 0.6);
+  transition: all var(--transition-normal);
+  overflow: hidden;
+}
+
+.primary-submit-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.6s ease;
+}
+
+.primary-submit-btn:hover:not(:disabled)::before {
+  left: 100%;
+}
+
+.primary-submit-btn:hover:not(:disabled) {
+  background: linear-gradient(180deg, #ffffff 0%, #fef08a 35%, #f59e0b 80%, #b45309 100%);
+  color: #04060b;
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 36px rgba(245, 158, 11, 0.75),
+    0 2px 10px rgba(0, 0, 0, 0.7),
+    inset 0 1px 2px rgba(255, 255, 255, 0.9),
+    inset 0 -2px 4px rgba(69, 26, 3, 0.7);
+  border-color: rgba(255, 255, 255, 0.9);
+}
+
+.primary-submit-btn:active:not(:disabled) {
+  transform: translateY(1px);
+  box-shadow:
+    0 2px 14px rgba(245, 158, 11, 0.5),
+    inset 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.primary-submit-btn:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.primary-submit-btn.compact {
+  width: auto;
+  padding: 0.75rem 1.4rem;
+  font-size: 0.92rem;
+}
+
+.btn-arrow-icon {
+  width: 20px;
+  height: 20px;
+  transition: transform var(--transition-fast);
+}
+
+.primary-submit-btn:hover .btn-arrow-icon {
+  transform: translateX(4px);
+}
+
+.btn-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Security Footer */
+.auth-security-footer {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.security-badges-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.security-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: color var(--transition-fast);
+}
+
+.security-badge:hover {
+  color: var(--text-secondary);
+}
+
+.security-badge svg {
+  color: var(--brand-emerald);
+}
+
+.auth-flow-info {
+  text-align: center;
+}
+
+
+
+
+/* ==========================================================================
+   Modals & Overlays
+   ========================================================================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 1;
+  transition: opacity var(--transition-normal);
+}
+
+.modal-card {
+  width: 100%;
+  max-width: 480px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-medium);
+  border-radius: 18px;
+  padding: 2rem;
+  box-shadow: var(--shadow-lg);
+  animation: modal-pop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+
+
+@keyframes modal-pop {
+  from { opacity: 0; transform: scale(0.92) translateY(12px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.modal-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.modal-icon-wrap {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.modal-icon-wrap svg {
+  width: 22px;
+  height: 22px;
+}
+
+.modal-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.25;
+}
+
+.modal-sub {
+  font-size: 0.825rem;
+  color: var(--text-secondary);
+  margin-top: 0.25rem;
+}
+
+.modal-close-btn {
+  margin-left: auto;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  line-height: 1;
+}
+
+.modal-close-btn:hover {
+  color: var(--text-primary);
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.modal-actions-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.secondary-btn {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 0.65rem 1.1rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.secondary-btn:hover {
+  background: var(--bg-surface-elevated);
+  color: var(--text-primary);
+}
+
+
+/* ==========================================================================
+   Cinematic Bitcoin Opening Transition & Vault Zoom-Through
+   ========================================================================== */
+.btc-intro-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: #030712;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), 
+              filter 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.75s ease;
+  will-change: opacity, filter;
+  user-select: none;
+}
+
+.btc-intro-overlay.fade-out {
+  opacity: 0;
+  filter: blur(28px) brightness(1.4);
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.btc-intro-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px;
+  perspective-origin: center center;
+  overflow: hidden;
+}
+
+/* 3D Viewport Camera and Pure Bitcoin Coin Layout */
+.btc-viewport-camera {
+  position: relative;
+  z-index: 2;
+  width: 350px;
+  height: 350px;
+  max-width: 85vw;
+  max-height: 85vw;
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btc-coin-3d {
+  position: relative;
+  width: 350px;
+  height: 350px;
+  max-width: 85vw;
+  max-height: 85vw;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  will-change: transform;
+  outline: none;
+  filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 55px rgba(245, 158, 11, 0.65));
+  transform-origin: center center;
+  transition: filter 0.3s ease;
+}
+
+.btc-coin-3d:hover {
+  filter: drop-shadow(0 35px 75px rgba(0, 0, 0, 1)) drop-shadow(0 0 75px rgba(245, 158, 11, 0.9));
+}
+
+/* Cinematic Zoom-Through: Plunges directly into the middle of the Bitcoin layout */
+.btc-coin-3d.zooming-in {
+  transition: transform 1.25s cubic-bezier(0.65, 0, 0.25, 1), filter 1.25s ease !important;
+  transform: translate3d(0, 0, 950px) scale(36) rotateY(0deg) rotateX(0deg) !important;
+  filter: drop-shadow(0 0 80px rgba(254, 240, 138, 1)) drop-shadow(0 0 140px rgba(245, 158, 11, 0.95)) !important;
+}
+
+/* Coin Faces & Pure Vector Layout */
+.btc-face {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  backface-visibility: hidden;
+  box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.8), 0 0 35px rgba(245, 158, 11, 0.5);
+}
+
+.btc-front {
+  transform: translateZ(10px);
+}
+
+.btc-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  user-select: none;
+}
+
+.btc-specular-sheen {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 25%, rgba(255, 255, 255, 0.35) 0%, transparent 60%);
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* Radiant Golden Core Flash */
+.btc-core-flash {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #FFFFFF 0%, #FEF08A 35%, #F59E0B 65%, transparent 85%);
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 100000;
+  transition: transform 0.65s cubic-bezier(0.12, 0.8, 0.25, 1), opacity 0.65s ease;
+}
+
+.btc-core-flash.explode {
+  transform: translate(-50%, -50%) scale(45);
+  opacity: 1;
+}
+
+/* Page Container Initial State & Reveal Animation */
+body.site-intro-pending .page-container {
+  opacity: 0;
+  transform: scale(0.92);
+  filter: blur(14px);
+  pointer-events: none;
+}
+
+.page-container {
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.85s ease;
+  will-change: opacity, transform, filter;
+}
+
+body.site-intro-revealed .page-container {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+  filter: blur(0px) !important;
+  pointer-events: auto !important;
+}
+
+/* Top Nav Amber Replay Button */
+.pill-btn-amber {
+  background: rgba(245, 158, 11, 0.14);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  color: #FBBF24;
+}
+
+.pill-btn-amber:hover {
+  background: rgba(245, 158, 11, 0.25);
+  border-color: rgba(245, 158, 11, 0.6);
+  color: #FEF08A;
+  transform: translateY(-1px);
+}
+
+.btc-badge-icon {
+  font-weight: 900;
+  color: #F59E0B;
+}
+
+/* Utilities */
+.hidden {
+  display: none !important;
+}
+
+/* ==========================================================================
+   Coin Flip — double-click / double-tap on the side Bitcoin coin
+   ========================================================================== */
+
+/* The flip plays on .side-coin-wrap (inner, has CSS float anim) */
+@keyframes coin-flip {
+  0%   { transform: rotateY(0deg)   scaleX(1);    filter: drop-shadow(0 4px 0 #78350F) drop-shadow(0 8px 0 #451A03) drop-shadow(0 0 55px rgba(245,158,11,0.65)) drop-shadow(0 30px 65px rgba(0,0,0,0.95)); }
+  20%  { transform: rotateY(90deg)  scaleX(0.05); filter: drop-shadow(0 0 95px rgba(254,240,138,0.95)) drop-shadow(0 0 140px rgba(245,158,11,0.9)); }
+  50%  { transform: rotateY(180deg) scaleX(1);    filter: drop-shadow(0 0 110px rgba(255,255,255,0.8)) drop-shadow(0 0 160px rgba(245,158,11,1)); }
+  70%  { transform: rotateY(270deg) scaleX(0.05); filter: drop-shadow(0 0 95px rgba(254,240,138,0.95)) drop-shadow(0 0 140px rgba(245,158,11,0.9)); }
+  100% { transform: rotateY(360deg) scaleX(1);    filter: drop-shadow(0 4px 0 #78350F) drop-shadow(0 8px 0 #451A03) drop-shadow(0 0 55px rgba(245,158,11,0.65)) drop-shadow(0 30px 65px rgba(0,0,0,0.95)); }
+}
+
+.coin-flipping {
+  animation: coin-flip 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+}
+
+/* Cursor hint: coin is double-clickable */
+#side-coin-tilt,
+#side-coin-tilt-right {
+  cursor: pointer;
+}
+#side-coin-tilt::after,
+#side-coin-tilt-right::after {
+  content: '↻ double-click to flip';
+  position: absolute;
+  bottom: -32px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  color: rgba(245, 158, 11, 0.6);
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+#side-coin-tilt:hover::after,
+#side-coin-tilt-right:hover::after {
+  opacity: 1;
+}
+
+/* Gold flash burst spawned by JS on each flip */
+@keyframes flip-flash-expand {
+  0%   { transform: translate(-50%, -50%) scale(0);  opacity: 1; }
+  60%  { transform: translate(-50%, -50%) scale(3.5); opacity: 0.8; }
+  100% { transform: translate(-50%, -50%) scale(5.5); opacity: 0; }
+}
+
+.flip-flash-burst {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(254,240,138,0.8) 25%, rgba(245,158,11,0.5) 55%, transparent 75%);
+  pointer-events: none;
+  z-index: 10;
+  animation: flip-flash-expand 0.65s cubic-bezier(0.12, 0.8, 0.25, 1) forwards;
+}
+
